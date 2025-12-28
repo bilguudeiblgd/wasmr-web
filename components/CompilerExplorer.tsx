@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Editor from '@monaco-editor/react';
-
+import init, { compile_string_to_wat } from '../pkg/rty_compiler.js'
 export default function CompilerExplorer() {
   const [rCode, setRCode] = useState(`# R Code Example
 x <- 1:10
@@ -12,12 +12,15 @@ print(y)`);
   const [watOutput, setWatOutput] = useState(`;; WAT output will appear here
 ;; Waiting for compiler integration...`);
 
-  const handleCompile = () => {
-    // Placeholder for compiler integration
-    // This will be replaced with actual compiler call in the future
-    setWatOutput(`;; Compiler placeholder
-;; R code length: ${rCode.length} characters
-;; Actual compilation will be integrated later`);
+  const handleCompile = async () => {
+    try {
+      await init('/rty_compiler_bg.wasm');
+      const wasmOut = compile_string_to_wat(rCode);
+      setWatOutput(`${wasmOut}`);
+    } catch (e) {
+      setWatOutput(`Some error happened: ${e}`);
+      console.log(e);
+    }
   };
 
   return (

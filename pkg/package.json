@@ -1,0 +1,15 @@
+{
+  "name": "Rty_compiler",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "rty_compiler_bg.wasm",
+    "rty_compiler.js",
+    "rty_compiler.d.ts"
+  ],
+  "main": "rty_compiler.js",
+  "types": "rty_compiler.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

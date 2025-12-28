@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Editor from '@monaco-editor/react';
 import init, { compile_string_to_wat } from '../pkg/rty_compiler.js'
+
 export default function CompilerExplorer() {
   const [rCode, setRCode] = useState(`# R Code Example
 x <- 1:10

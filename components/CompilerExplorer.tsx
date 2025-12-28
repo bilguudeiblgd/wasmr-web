@@ -7,7 +7,7 @@ export default function CompilerExplorer() {
   const [rCode, setRCode] = useState(`# R Code Example
 x <- 1:10
 y <- x * 2
-print(y)`);
+print(sum(y))`);
 
   const [watOutput, setWatOutput] = useState(`;; WAT output will appear here
 ;; Waiting for compiler integration...`);

@@ -1,12 +1,14 @@
 /* tslint:disable */
 /* eslint-disable */
 export function compile_string_to_wat(source: string): string;
+export function compile_string_to_wasm(source: string): Uint8Array;
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
   readonly compile_string_to_wat: (a: number, b: number) => [number, number, number, number];
+  readonly compile_string_to_wasm: (a: number, b: number) => [number, number, number, number];
   readonly __wbindgen_free: (a: number, b: number, c: number) => void;
   readonly __wbindgen_malloc: (a: number, b: number) => number;
   readonly __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
